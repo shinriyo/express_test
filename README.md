@@ -1,6 +1,7 @@
 ドットインストールのExpressのCoffeeScript
-http://dotinstall.com/lessons/basic_expressjs/
 ===
+
+http://dotinstall.com/lessons/basic_expressjs/
 
 ===
 How to use
@@ -25,5 +26,6 @@ npm install -g jitter
 npm install ejs -g
 
 
+cd project_name
 jitter coffee js --bare
 node app

@@ -12,16 +12,19 @@ app.use(app.router)
 #app.use(express.static(__dirname + '/public'))
 app.use(express.static(my_path + '/public'))
 
-add.param('id', (req, res, next, id) ->
-  users = ['taguchi', 'fkoji', '']
+app.param('id', (req, res, next, id) ->
+  users = ['taguchi', 'fkoji', 'dotinstall']
   req.params.name = users[id]
   next()
+)
 
 app.get('/hello/:id', (req, res) ->
-  res.send('hello ' + req.arams.id)
+  res.send('hello ' + req.params.name)
+)
 
 app.get('/bye/:id', (req, res) ->
-  res.send('hello ' + req.arams.id)
+  res.send('bye ' + req.params.name)
+)
 
 app.get('/', (req, res) ->
  res.render('index', {title: 'title'})

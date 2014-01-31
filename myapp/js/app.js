@@ -18,6 +18,21 @@ app.use(app.router);
 
 app.use(express["static"](my_path + '/public'));
 
+app.param('id', function(req, res, next, id) {
+  var users;
+  users = ['taguchi', 'fkoji', 'dotinstall'];
+  req.params.name = users[id];
+  return next();
+});
+
+app.get('/hello/:id', function(req, res) {
+  return res.send('hello ' + req.params.name);
+});
+
+app.get('/bye/:id', function(req, res) {
+  return res.send('bye ' + req.params.name);
+});
+
 app.get('/', function(req, res) {
   return res.render('index', {
     title: 'title'
