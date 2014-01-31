@@ -7,6 +7,9 @@ app.set('view engine', 'ejs')
 console.log(my_path + '/views')
 
 # middleware
+app.use(express.json())
+app.use(express.urlencoded())
+
 app.use(express.logger('dev'))
 app.use(app.router)
 #app.use(express.static(__dirname + '/public'))
@@ -18,6 +21,18 @@ app.param('id', (req, res, next, id) ->
   next()
 )
 
+# 10
+# GET
+app.get('/new', (req, res) ->
+  res.render('new')
+)
+
+# POST
+app.post('/create', (req, res) ->
+  res.send(res.body.name)
+)
+
+# 9
 app.get('/hello/:id', (req, res) ->
   res.send('hello ' + req.params.name)
 )

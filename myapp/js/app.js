@@ -12,6 +12,10 @@ app.set('view engine', 'ejs');
 
 console.log(my_path + '/views');
 
+app.use(express.json());
+
+app.use(express.urlencoded());
+
 app.use(express.logger('dev'));
 
 app.use(app.router);
@@ -23,6 +27,14 @@ app.param('id', function(req, res, next, id) {
   users = ['taguchi', 'fkoji', 'dotinstall'];
   req.params.name = users[id];
   return next();
+});
+
+app.get('/new', function(req, res) {
+  return res.render('new');
+});
+
+app.post('/create', function(req, res) {
+  return res.send(res.body.name);
 });
 
 app.get('/hello/:id', function(req, res) {
