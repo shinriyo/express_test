@@ -34,7 +34,7 @@ app.get('/new', function(req, res) {
 });
 
 app.post('/create', function(req, res) {
-  return res.send(res.body.name);
+  return res.send(req.body.name);
 });
 
 app.get('/hello/:id', function(req, res) {

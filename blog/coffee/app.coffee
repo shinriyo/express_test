@@ -17,11 +17,13 @@ app.use(app.router)
 
 # routing
 app.get('/', post.index)
+###
 app.get('/post/new', post.new)
 app.post('/post/create', post.create)
+app.get('/post/:id', post.show)
 app.get('/post/:id/edit', post.edit)
 app.put('/post/:id/', post.update)
 app.delete('/post/:id/', post.destroy)
-
+###
 app.listen(3000)
 console.log("server starting...")

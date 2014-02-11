@@ -29,7 +29,7 @@ app.get('/new', (req, res) ->
 
 # POST
 app.post('/create', (req, res) ->
-  res.send(res.body.name)
+  res.send(req.body.name)
 )
 
 # 9
