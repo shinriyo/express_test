@@ -17,7 +17,7 @@ app.use(app.router)
 
 # routing
 app.get('/', post.index)
-#app.get('/post/:id', post.show)
+app.get('/posts/:id', post.show)
 ###
 app.get('/post/new', post.new)
 app.post('/post/create', post.create)

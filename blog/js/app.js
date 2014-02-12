@@ -26,6 +26,8 @@ app.use(app.router);
 
 app.get('/', post.index);
 
+app.get('/posts/:id', post.show);
+
 /*
 app.get('/post/new', post.new)
 app.post('/post/create', post.create)

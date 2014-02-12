@@ -18,3 +18,9 @@ exports.index = function(req, res) {
     posts: posts
   });
 };
+
+exports.show = function(req, res) {
+  return res.render('posts/show', {
+    post: posts[req.params.id]
+  });
+};

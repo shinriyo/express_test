@@ -7,5 +7,5 @@ posts = [
 exports.index = (req, res)->
   res.render('posts/index', {posts: posts})
 
-#exports.index = (req, res)->
-#  res.render('posts/show', {posts: posts[req.params.id]})
+exports.show = (req, res)->
+  res.render('posts/show', {post: posts[req.params.id]})
