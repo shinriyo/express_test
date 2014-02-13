@@ -24,3 +24,7 @@ exports.show = function(req, res) {
     post: posts[req.params.id]
   });
 };
+
+exports["new"] = function(req, res) {
+  return res.render('posts/new');
+};

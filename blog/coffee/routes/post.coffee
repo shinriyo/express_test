@@ -9,3 +9,6 @@ exports.index = (req, res)->
 
 exports.show = (req, res)->
   res.render('posts/show', {post: posts[req.params.id]})
+
+exports.new = (req, res)->
+  res.render('posts/new')
