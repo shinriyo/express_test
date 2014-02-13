@@ -1,0 +1,9 @@
+# node.js / coffeescript
+#--------------------------------------------------------------------
+docs/*.html
+docs/docco
+lib-cov
+lib/*.js
+node_modules
+README.html
+test/*.js
