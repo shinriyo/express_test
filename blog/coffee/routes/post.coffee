@@ -12,3 +12,11 @@ exports.show = (req, res)->
 
 exports.new = (req, res)->
   res.render('posts/new')
+
+exports.create = (req, res)->
+  post = {
+      title: req.body.title,
+      body: req.body.body
+  }
+  posts.push(post)
+  res.redirect('/')

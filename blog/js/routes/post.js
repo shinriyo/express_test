@@ -28,3 +28,13 @@ exports.show = function(req, res) {
 exports["new"] = function(req, res) {
   return res.render('posts/new');
 };
+
+exports.create = function(req, res) {
+  var post;
+  post = {
+    title: req.body.title,
+    body: req.body.body
+  };
+  posts.push(post);
+  return res.redirect('/');
+};

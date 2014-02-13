@@ -26,12 +26,13 @@ app.use(app.router);
 
 app.get('/', post.index);
 
-app.get('/posts/:id(0-9]+)', post.show);
+app.get('/posts/:id([0-9]+)', post.show);
 
 app.get('/posts/new', post["new"]);
 
+app.post('/posts/create', post.create);
+
 /*
-app.post('/posts/create', post.create)
 app.get('/posts/:id/edit', post.edit)
 app.put('/posts/:id/', post.update)
 app.delete('/posts/:id/', post.destroy)
