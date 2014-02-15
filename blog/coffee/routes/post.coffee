@@ -16,6 +16,13 @@ exports.new = (req, res)->
 exports.edit = (req, res)->
   res.render('posts/edit', {post: posts[req.params.id], id: req.params.id})
 
+exports.update = (req, res)->
+  posts[req.body.id]  = {
+      title: req.body.title,
+      body: req.body.body,
+  }
+  res.redirect('/')
+
 exports.create = (req, res)->
   post = {
       title: req.body.title,

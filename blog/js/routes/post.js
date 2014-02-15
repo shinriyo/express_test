@@ -36,6 +36,14 @@ exports.edit = function(req, res) {
   });
 };
 
+exports.update = function(req, res) {
+  posts[req.body.id] = {
+    title: req.body.title,
+    body: req.body.body
+  };
+  return res.redirect('/');
+};
+
 exports.create = function(req, res) {
   var post;
   post = {
