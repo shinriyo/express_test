@@ -22,6 +22,9 @@ app.use((req, res, next) ->
 
 app.use(express.logger('dev'))
 app.use(app.router)
+app.use((err, req, res, next)->
+  res.send(err.message)
+)
 
 # routing
 app.get('/', post.index)

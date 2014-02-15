@@ -37,6 +37,10 @@ app.use(express.logger('dev'));
 
 app.use(app.router);
 
+app.use(function(err, req, res, next) {
+  return res.send(err.message);
+});
+
 app.get('/', post.index);
 
 app.get('/posts/:id([0-9]+)', post.show);

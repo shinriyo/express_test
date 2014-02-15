@@ -36,17 +36,25 @@ exports.edit = function(req, res) {
   });
 };
 
-exports.update = function(req, res) {
-  posts[req.body.id] = {
-    title: req.body.title,
-    body: req.body.body
-  };
-  return res.redirect('/');
+exports.update = function(req, res, next) {
+  if (req.body.id !== req.params.id) {
+    return next(new Error('ID not valid'));
+  } else {
+    posts[req.body.id] = {
+      title: req.body.title,
+      body: req.body.body
+    };
+    return res.redirect('/');
+  }
 };
 
-exports.destroy = function(req, res) {
-  posts.splice(req.body.id, 1);
-  return res.redirect('/');
+exports.destroy = function(req, res, next) {
+  if (req.body.id !== req.params.id) {
+    return next(new Error('ID not valid'));
+  } else {
+    posts.splice(req.body.id, 1);
+    return res.redirect('/');
+  }
 };
 
 exports.create = function(req, res) {
