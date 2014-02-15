@@ -44,6 +44,11 @@ exports.update = function(req, res) {
   return res.redirect('/');
 };
 
+exports.destroy = function(req, res) {
+  posts.splice(req.body.id, 1);
+  return res.redirect('/');
+};
+
 exports.create = function(req, res) {
   var post;
   post = {

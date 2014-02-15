@@ -36,10 +36,7 @@ app.get('/posts/:id/edit', post.edit);
 
 app.put('/posts/:id', post.update);
 
-/*
-app.delete('/posts/:id/', post.destroy)
-*/
-
+app["delete"]('/posts/:id', post.destroy);
 
 app.listen(3000);
 

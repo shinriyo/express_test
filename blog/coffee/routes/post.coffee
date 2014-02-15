@@ -23,6 +23,10 @@ exports.update = (req, res)->
   }
   res.redirect('/')
 
+exports.destroy = (req, res)->
+  posts.splice(req.body.id, 1)
+  res.redirect('/')
+
 exports.create = (req, res)->
   post = {
       title: req.body.title,
