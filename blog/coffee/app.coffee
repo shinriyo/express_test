@@ -11,6 +11,14 @@ console.log(my_path + '/views')
 app.use(express.json())
 app.use(express.urlencoded())
 app.use(express.methodOverride())
+#csrf対策
+app.use(express.cookieParser())
+app.use(express.session({secret: '238D&FSD'}))
+app.use(express.csrf())
+app.use((req, res, next) ->
+  res.locals.csrftoken = req.csrfToken()
+  next()
+)
 
 app.use(express.logger('dev'))
 app.use(app.router)

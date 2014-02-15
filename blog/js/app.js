@@ -20,6 +20,19 @@ app.use(express.urlencoded());
 
 app.use(express.methodOverride());
 
+app.use(express.cookieParser());
+
+app.use(express.session({
+  secret: '238D&FSD'
+}));
+
+app.use(express.csrf());
+
+app.use(function(req, res, next) {
+  res.locals.csrftoken = req.csrfToken();
+  return next();
+});
+
 app.use(express.logger('dev'));
 
 app.use(app.router);
